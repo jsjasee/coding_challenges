@@ -29,7 +29,7 @@ def eval_algebra(equation):
     if mul_by_neg:
         final_answer *= -1
 
-    # todo 3: check what's the operator before x if any, this will determine if we need to multiply by -1
+    # todo 3:check what's the operator before x if any, this will determine if we need to multiply by -1
 
     # todo 4: perform the operation on the rhs and get x!
 

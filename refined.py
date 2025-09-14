@@ -19,7 +19,6 @@ def parse_side(tokens):
     return [a, b]
 
 def eval_algebra(equation):
-
     lhs = parse_side(equation.split('=')[0].strip().split(" "))
     rhs = parse_side(equation.split('=')[1].strip().split(" "))
     # split the equation & strip
