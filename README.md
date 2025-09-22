@@ -1,1 +1,1 @@
-# code_challenge_algebra
+# CODING CHALLENGES
