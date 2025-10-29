@@ -2,14 +2,15 @@ def finish_all(number_of_jobs, jobs_list):
 
     def get_start_points(list_of_points):
         discard_numbers = []
-        number_of_points = len(list_of_points) - 1
-        for num in range(number_of_points):
+        # number_of_points = len(list_of_points) - 1 # number of points IS NOT the number of itmes in the list!!
+        for num in range(number_of_jobs):
             # find the elements to be the start points to start checking. These start points have numbers which did not appear in the first item of any lists!
             for point in list_of_points:
                 if point[0] == num:
                     discard_numbers.append(num)
 
         keep = [item for item in list_of_points if item[1] not in discard_numbers]
+        print(number_of_jobs, keep)
         return keep
 
     def check_jobs(current_job_list, job_to_check):
@@ -17,6 +18,7 @@ def finish_all(number_of_jobs, jobs_list):
         for job_to_remove in completed_jobs:
             # print(f"dependent job found: {job_to_remove}")
             if job_to_check != job_to_remove[::-1]:
+                print("conducting check...")
                 # this only removes the job if the job is NOT a circular one, aka [a,b] & [b,a], when we flip [b,a] we get [a,b]
                 current_job_list.remove(job_to_remove)
             # print(current_job_list)
@@ -55,3 +57,6 @@ finish_all(2, [[1, 0], [0, 1]])
 finish_all(3, [[1, 0], [2, 1]])
 finish_all(1, [])
 finish_all(11, [[6, 10], [4, 3], [9, 2], [2, 3], [6, 1], [2, 8], [10, 1], [10, 2], [5, 3], [0, 10], [7, 4], [6, 1]])
+finish_all(3, [[1,0],[2,1],[0,2]])
+finish_all(4, [[1,0],[2,0],[3,1],[3,2]])  # 0→1, 0→2, and both → 3
+finish_all(4, [[1,0],[2,1],[0,2]])
